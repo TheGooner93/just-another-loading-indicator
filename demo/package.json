@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --open"
   },
   "dependencies": {
-    "just-another-loading-indicator": "^1.0.4",
+    "just-another-loading-indicator": "^1.0.9",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
