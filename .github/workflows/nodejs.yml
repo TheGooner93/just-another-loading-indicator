@@ -28,11 +28,14 @@ jobs:
       - name: Build and generate lib
         run: npm run build --if-present
 
+      - name: Configure git email
+        run: git config --global user.email "mohammedehab93@gmail.com"
+
+      - name: Configure git username
+        run: git config --global user.name "Mohammed Ehab"
+
       - name: Update patch version
-        run: |
-        git config --global user.email "mohammedehab93@gmail.com"
-        git config --global user.name "Mohammed Ehab"
-        npm version patch
+        run: npm version patch
 
       - name: Publish to npm
         run: npm publish
