@@ -18,7 +18,7 @@ function JustAnotherLoadingIndicator(props) {
 const jssStyles = {
     spinnerStyle: {
         border: '16px solid #f3f3f3',
-        borderTop: '16px solid blue',
+        borderTop: '16px solid red',
         borderRadius: '50%',
         width: 120,
         height: 120,
