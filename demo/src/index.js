@@ -3,10 +3,19 @@ import { render } from "react-dom";
 
 import JustAnotherLoadingIndicator from "just-another-loading-indicator";
 
+const wrapperStyle = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100vh",
+};
+
 render(
-  <div>
-    <h2>React Boilerplate Component Demo</h2>
-    <JustAnotherLoadingIndicator />
+  <div style={wrapperStyle}>
+    <div style={{ height: "3rem", width: "3rem" }}>
+      <JustAnotherLoadingIndicator />
+    </div>
   </div>,
   document.getElementById("app")
 );
