@@ -37,6 +37,9 @@ jobs:
       - name: Update patch version
         run: npm version patch
 
+      - name: Commit updated patch to repo
+        run: git commit -m "Updated patch version"
+
       - name: Publish to npm
         run: npm publish
         env:
