@@ -1,4 +1,4 @@
-#just-another-loading-indicator
+# just-another-loading-indicator
 
 ## About
 
