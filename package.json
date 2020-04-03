@@ -1,6 +1,6 @@
 {
   "name": "just-another-loading-indicator",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Simple and easy to import loader within your React app.",
   "main": "./lib/JustAnotherLoadingIndicator",
   "license": "MIT",
