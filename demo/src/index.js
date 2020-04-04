@@ -9,12 +9,13 @@ const wrapperStyle = {
   justifyContent: "center",
   alignItems: "center",
   height: "100vh",
+  background: "lightgray",
 };
 
 render(
   <div style={wrapperStyle}>
     <div style={{ height: "3rem", width: "3rem" }}>
-      <JustAnotherLoadingIndicator color={"green"} />
+      <JustAnotherLoadingIndicator color={"green"} type={""} />
     </div>
   </div>,
   document.getElementById("app")
