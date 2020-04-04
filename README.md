@@ -18,6 +18,7 @@ Run `npm i just-another-loading-indicator` within your React app.
 | Prop  | Default |
 | ----- | ------- |
 | color | #000000 |
+| type  | ring    |
 
 ## Run demo locally
 
