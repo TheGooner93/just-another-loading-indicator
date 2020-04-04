@@ -14,7 +14,7 @@ function JustAnotherLoadingIndicator(props) {
     } = props;
 
     const returnedStyle =
-        type === 'atom' ? sphereAlongBorderStyle : singleBorderSpinnerStyle;
+        type === 'bouncymoon' ? sphereAlongBorderStyle : singleBorderSpinnerStyle;
 
     return <div className={classNames(spinnerBaseStyle, returnedStyle)} />
 }
@@ -46,10 +46,13 @@ const jssStyles = {
             left: '50%',
             marginLeft: '-5px',
             borderRadius: '50%',
+            animation: '$reversebouncy 0.5s ease-in infinite',
         },
         '&::after': {
             top: 'auto',
             bottom: '-5px',
+            animation: '$bouncy 0.5s ease-in infinite',
+
         },
     }),
 
@@ -59,6 +62,22 @@ const jssStyles = {
         },
         'to': {
             transform: 'rotate(360deg)',
+        }
+    },
+    '@keyframes bouncy': {
+        '0% 100%': {
+            transform: 'translateY(0px)',
+        },
+        '50%': {
+            transform: 'translateY(15px)',
+        }
+    },
+    '@keyframes reversebouncy': {
+        '0% 100%': {
+            transform: 'translateY(0px)',
+        },
+        '50%': {
+            transform: 'translateY(-15px)',
         }
     }
 };
