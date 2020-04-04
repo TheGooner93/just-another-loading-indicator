@@ -8,13 +8,16 @@ function JustAnotherLoadingIndicator(props) {
         classes: {
             spinnerBaseStyle,
             singleBorderSpinnerStyle,
-            sphereAlongBorderStyle
+            sphereAlongBorderStyle,
+            clockStyle
         },
         type,
     } = props;
 
     const returnedStyle =
-        type === 'bouncymoon' ? sphereAlongBorderStyle : singleBorderSpinnerStyle;
+        type === 'bouncymoon' ? sphereAlongBorderStyle :
+            type === 'clock' ? clockStyle :
+                singleBorderSpinnerStyle;
 
     return <div className={classNames(spinnerBaseStyle, returnedStyle)} />
 }
@@ -31,10 +34,10 @@ const jssStyles = {
     singleBorderSpinnerStyle: ({ color }) => ({
         border: `16px solid #f3f3f3`,
         borderTop: `16px solid ${color}`,
-        animation: '$spinAnimation 2s linear infinite',
+        animation: '$spin 2s linear infinite',
     }),
     sphereAlongBorderStyle: ({ color }) => ({
-        animation: '$spinAnimation 2s linear infinite',
+        animation: '$spin 2s linear infinite',
         background: '#FFFFFF',
         '&::before, &::after': {
             content: '""',
@@ -55,8 +58,24 @@ const jssStyles = {
 
         },
     }),
+    clockStyle: ({ color }) => ({
+        border: '4px solid #eee',
+        '&::after': {
+            content: '""',
+            width: '3px',
+            height: '25px',
+            animation: '$spin 5s linear infinite',
+            background: color,
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            marginLeft: '-1.5px',
+            transformOrigin: 'top center',
+            borderRadius: '1rem',
+        }
+    }),
 
-    '@keyframes spinAnimation': {
+    '@keyframes spin': {
         'from': {
             transform: 'rotate(0deg)',
         },

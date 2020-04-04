@@ -15,7 +15,7 @@ const wrapperStyle = {
 render(
   <div style={wrapperStyle}>
     <div style={{ height: "3rem", width: "3rem" }}>
-      <JustAnotherLoadingIndicator color={"green"} type={"bouncymoon"} />
+      <JustAnotherLoadingIndicator color={"green"} type={"clock"} />
     </div>
   </div>,
   document.getElementById("app")
