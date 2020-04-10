@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
@@ -6,11 +6,12 @@ import classNames from 'classnames';
 function JustAnotherLoadingIndicator(props) {
     const {
         classes: {
-            spinnerBaseStyle,
+            baseStyle,
             ringStyle,
             bouncymoonStyle,
             clockStyle,
             pulseStyle,
+            jumpingdotsStyle,
         },
         type,
     } = props;
@@ -19,13 +20,27 @@ function JustAnotherLoadingIndicator(props) {
         type === 'bouncymoon' ? bouncymoonStyle :
             type === 'clock' ? clockStyle :
                 type === 'pulse' ? pulseStyle :
-                    ringStyle;
+                    type === 'jumpingdots' ? jumpingdotsStyle :
+                        ringStyle;
 
-    return <div className={classNames(spinnerBaseStyle, returnedStyle)} />
+    const spanView = (
+        <Fragment>
+            <span></span>
+            <span></span>
+            <span></span>
+        </Fragment>
+    );
+
+    return <div className={classNames(baseStyle, returnedStyle)} >
+        {
+            type === 'jumpingdots' ?
+                spanView : null
+        }
+    </div>;
 }
 
 const jssStyles = {
-    spinnerBaseStyle: {
+    baseStyle: {
         width: '100%',
         height: '100%',
         background: '#FFFFFF',
@@ -87,8 +102,30 @@ const jssStyles = {
             animation: '$pulse 2s linear 2.3s infinite'
         }
     }),
-
-
+    jumpingdotsStyle: ({ color }) => ({
+        height: 0,
+        width: 0,
+        '& span': {
+            display: 'block',
+            height: '20px',
+            width: '20px',
+            background: color,
+            borderRadius: '50%',
+            position: 'absolute',
+            top: 0,
+            '&:nth-child(1)': {
+                left: '-40px',
+                animation: '$bouncy2 1.3s ease-in-out infinite'
+            },
+            '&:nth-child(2)': {
+                animation: '$bouncy2 1.3s ease-in-out 0.33s infinite'
+            },
+            '&:nth-child(3)': {
+                left: '40px',
+                animation: '$bouncy2 1.3s ease-in-out 0.66s infinite'
+            },
+        }
+    }),
     '@keyframes spin': {
         'from': {
             transform: 'rotate(0deg)',
@@ -122,7 +159,15 @@ const jssStyles = {
             transform: 'scale(1.2)',
             opacity: 0,
         }
-    }
+    },
+    '@keyframes bouncy2': {
+        '0% 50% 100%': {
+            transform: 'translateY(0px)',
+        },
+        '25%': {
+            transform: 'translateY(-30px)',
+        }
+    },
 };
 
 JustAnotherLoadingIndicator.propTypes = {
