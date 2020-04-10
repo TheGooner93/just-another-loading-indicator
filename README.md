@@ -15,10 +15,10 @@ Run `npm i just-another-loading-indicator` within your React app.
 
 ### API
 
-| Prop  | Default | Description                |
-| ----- | ------- | -------------------------- |
-| color | #000000 | Primary coloring           |
-| type  | `ring`  | Also `bouncymoon`, `clock` |
+| Prop  | Default | Description                         |
+| ----- | ------- | ----------------------------------- |
+| color | #000000 | Primary coloring                    |
+| type  | `ring`  | Also `bouncymoon`, `clock`, `pulse` |
 
 ### Run demo locally
 

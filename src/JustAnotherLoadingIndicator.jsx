@@ -7,17 +7,19 @@ function JustAnotherLoadingIndicator(props) {
     const {
         classes: {
             spinnerBaseStyle,
-            singleBorderSpinnerStyle,
-            sphereAlongBorderStyle,
-            clockStyle
+            ringStyle,
+            bouncymoonStyle,
+            clockStyle,
+            pulseStyle,
         },
         type,
     } = props;
 
     const returnedStyle =
-        type === 'bouncymoon' ? sphereAlongBorderStyle :
+        type === 'bouncymoon' ? bouncymoonStyle :
             type === 'clock' ? clockStyle :
-                singleBorderSpinnerStyle;
+                type === 'pulse' ? pulseStyle :
+                    ringStyle;
 
     return <div className={classNames(spinnerBaseStyle, returnedStyle)} />
 }
@@ -30,43 +32,44 @@ const jssStyles = {
         borderRadius: '50%',
         position: 'relative',
         display: 'inline-block',
+        '&::before, &::after': {
+            content: '""',
+            width: '100%',
+            height: '100%',
+            borderRadius: '50%',
+            position: 'absolute',
+        }
     },
-    singleBorderSpinnerStyle: ({ color }) => ({
+    ringStyle: ({ color }) => ({
         border: `16px solid #f3f3f3`,
         borderTop: `16px solid ${color}`,
         animation: '$spin 2s linear infinite',
     }),
-    sphereAlongBorderStyle: ({ color }) => ({
+    bouncymoonStyle: ({ color }) => ({
         animation: '$spin 2s linear infinite',
         background: '#FFFFFF',
         '&::before, &::after': {
-            content: '""',
             height: '10px',
             width: '10px',
             background: color,
-            position: 'absolute',
             top: '-5px',
             left: '50%',
             marginLeft: '-5px',
-            borderRadius: '50%',
             animation: '$reversebouncy 0.5s ease-in infinite',
         },
         '&::after': {
             top: 'auto',
             bottom: '-5px',
             animation: '$bouncy 0.5s ease-in infinite',
-
         },
     }),
     clockStyle: ({ color }) => ({
         border: '4px solid #eee',
         '&::after': {
-            content: '""',
             width: '3px',
             height: '25px',
             animation: '$spin 5s linear infinite',
             background: color,
-            position: 'absolute',
             top: '50%',
             left: '50%',
             marginLeft: '-1.5px',
@@ -74,6 +77,17 @@ const jssStyles = {
             borderRadius: '1rem',
         }
     }),
+    pulseStyle: ({ color }) => ({
+        '&::after,&::before': {
+            background: color,
+            animation: '$pulse 3s linear infinite',
+            opacity: 0,
+        },
+        '&::after': {
+            animation: '$pulse 2s linear 2.3s infinite'
+        }
+    }),
+
 
     '@keyframes spin': {
         'from': {
@@ -97,6 +111,16 @@ const jssStyles = {
         },
         '50%': {
             transform: 'translateY(-15px)',
+        }
+    },
+    '@keyframes pulse': {
+        '0%': {
+            transform: 'scale(0)',
+            opacity: 1,
+        },
+        '100%': {
+            transform: 'scale(1.2)',
+            opacity: 0,
         }
     }
 };
