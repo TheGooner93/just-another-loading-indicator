@@ -23,6 +23,7 @@ function JustAnotherLoadingIndicator(props) {
                     type === 'jumpingdots' ? jumpingdotsStyle :
                         ringStyle;
 
+    //For the jumpingDots type
     const spanView = (
         <Fragment>
             <span></span>

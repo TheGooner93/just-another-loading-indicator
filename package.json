@@ -15,6 +15,7 @@
     "url": "https://github.com/TheGooner93/just-another-loading-indicator"
   },
   "scripts": {
+    "watch": "watch 'npm run build' src",
     "build": "webpack"
   },
   "peerDependencies": {
@@ -30,13 +31,14 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.24.1",
+    "classnames": "^2.2.6",
     "path": "^0.12.7",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "webpack": "^4.5.0",
-    "webpack-cli": "^3.2.1",
     "react-jss": "^10.1.1",
-    "classnames": "^2.2.6"
+    "watch": "^1.0.2",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^3.2.1"
   }
 }
