@@ -8,13 +8,13 @@ const wrapperStyle = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  height: "100vh",
+  height: "98vh",
   background: "lightgray",
 };
 
 render(
   <div style={wrapperStyle}>
-    <div style={{ height: "3rem", width: "3rem" }}>
+    <div style={{ height: "2rem", width: "2rem" }}>
       <JustAnotherLoadingIndicator color={"purple"} type={"jumpingdots"} />
     </div>
   </div>,
