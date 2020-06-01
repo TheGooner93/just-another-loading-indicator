@@ -15,14 +15,19 @@ Run `npm i just-another-loading-indicator` within your React app.
 
 ### API
 
-| Prop  | Default | Description                                        |
-| ----- | ------- | -------------------------------------------------- |
-| color | #000000 | Primary coloring                                   |
-| type  | `ring`  | Also `bouncymoon`, `clock`, `pulse`, `jumpingdots` |
+| Prop  | Default   |  Type   | Description                                        |
+| ----- | --------- | ------- | -------------------------------------------------- |
+| color | `#000000` | `string`| Primary coloring                                   |
+| type  | `ring`    | `string`| Also `bouncymoon`, `clock`, `pulse`, `jumpingdots` |
+| width | varies    | `number`| Relevant width per type                            |
+| height| varies    | `number`| Relevant height per type                           |
 
 ### Run demo locally
 
 1. Clone repository
-2. Navigate to `/demo`
-3. Run `npm install`
-4. Run `npm start`
+2. Run `npm run watch` to watch the loading indicator source and refresh the demo accordingly
+3. Navigate to `/demo`
+4. Run `npm install`
+5. Run `npm start`
+
+

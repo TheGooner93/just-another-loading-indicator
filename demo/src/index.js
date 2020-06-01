@@ -14,8 +14,8 @@ const wrapperStyle = {
 
 render(
   <div style={wrapperStyle}>
-    <div style={{ height: "2rem", width: "2rem" }}>
-      <JustAnotherLoadingIndicator color={"purple"} type={"jumpingdots"} />
+    <div style={{ display: 'flex', justifyContent : 'center', alignItems:'center', height: "50%", width: "50%" }}>
+      <JustAnotherLoadingIndicator color={"purple"} type={"jumpingdots"} height={20} width={20}/>
     </div>
   </div>,
   document.getElementById("app")
