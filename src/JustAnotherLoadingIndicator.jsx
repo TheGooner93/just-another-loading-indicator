@@ -61,12 +61,12 @@ const jssStyles = {
         borderTop: `16px solid ${color}`,
         animation: '$spin 2s linear infinite',
     }),
-    bouncymoonStyle: ({ color }) => ({
+    bouncymoonStyle: ({ color, height = 10, width = 10 }) => ({
         animation: '$spin 2s linear infinite',
         background: '#FFFFFF',
         '&::before, &::after': {
-            height: '10px',
-            width: '10px',
+            height: `${height}px`,
+            width: `${width}px`,
             background: color,
             top: '-5px',
             left: '50%',
@@ -79,11 +79,11 @@ const jssStyles = {
             animation: '$bouncy 0.5s ease-in infinite',
         },
     }),
-    clockStyle: ({ color }) => ({
+    clockStyle: ({ color, height = 25, width = 3 }) => ({
         border: '4px solid #eee',
         '&::after': {
-            width: '3px',
-            height: '25px',
+            width: `${width}px`,
+            height: `${height}px`,
             animation: '$spin 5s linear infinite',
             background: color,
             top: '50%',
@@ -103,13 +103,13 @@ const jssStyles = {
             animation: '$pulse 2s linear 2.3s infinite'
         }
     }),
-    jumpingdotsStyle: ({ color }) => ({
+    jumpingdotsStyle: ({ color, height = 20, width = 20 }) => ({
         height: 0,
         width: 0,
         '& span': {
             display: 'block',
-            height: '20px',
-            width: '20px',
+            height: `${height}px`,
+            width: `${width}px`,
             background: color,
             borderRadius: '50%',
             position: 'absolute',
@@ -175,6 +175,8 @@ JustAnotherLoadingIndicator.propTypes = {
     classes: PropTypes.object,
     color: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
+    height: PropTypes.string.isRequired,
+    width: PropTypes.string.isRequired,
 };
 
 JustAnotherLoadingIndicator.defaultProps = {
